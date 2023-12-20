@@ -1,0 +1,8 @@
+# Package Name
+package_name: CNSIR
+
+# Years (list of years or range in for of: "first_year - last_year")
+years: [1375, 1385, 1390, 1395]
+
+# Local Settings
+local_settings: config/cnsir_settings.yaml

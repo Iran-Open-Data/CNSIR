@@ -1,0 +1,404 @@
+
+table_availability:
+  household: [1375, 1385, 1390, 1395]
+  individual: [1375, 1385, 1390, 1395]
+
+default_table_settings:
+  # Options: error, drop
+  missings: skip
+
+
+
+individual:
+  file_code:
+    1375: sample_person_CN75
+    1385: "fard*"
+    1390: Samplefard2_final
+    1395: individual_2percent_final 
+
+  columns:
+
+    KhanevarID:
+      new_name: ID  # HBSIR
+      type: UInt64
+      description: شماره شناسایی خانوار
+
+    ostan:
+      new_name: Province_Code
+      type: UInt8
+      description: کد استان
+
+    shahrestan:
+      new_name: County
+      type: UInt16
+      description: کد شهرستان
+
+    UR: &urban_rural
+      new_name: Urban_Rural_Code
+      type: UInt8
+      description: >
+        شهری / روستایی
+        ۱ : شهری
+        ۲: روستایی
+    RU: *urban_rural
+
+    KhanevarType:
+      new_name: Household_Type  # HBSIR
+      type: category
+      description: >
+        نوع خانوار
+        ۱ : معمولی ساکن
+        ۳ : گروهی
+      categories:
+        1: Normal
+        3: Group 
+
+    MemberID:
+      new_name: Member_ID
+      type: UInt64
+
+    Col01:
+    new_name: Member_Number
+    type: UInt8
+
+    Relationship: &relationship
+      new_name: Relationship
+      type: category
+      categories:
+        1390:
+          '1': Head
+          '2': Spouse
+          '3': Child
+          '4': Child_in_Law
+          '5': Grand_Child
+          '6': Parent
+          '7': Sibling
+          '8': Spouse_Parent
+          '9': Spouse_Sibling
+          'M': Other_Family
+          'P': Non_Family
+          '$': No_Response
+        1395:
+          1: Head
+          2: Spouse
+          3: Child
+          4: Child_in_Law
+          5: Grand_Child
+          6: Parent
+          7: Sibling
+          8: Other_Family
+          9: Non_Family
+          -9: No_Response
+    Col03: *relationship
+
+    Gender: &sex
+      new_name: Sex
+      type: category
+      categories:
+        1: Male
+        2: Female
+    Col4: *sex
+
+    calendar: &calendar
+      new_name: Calendar
+      type: category
+      categories:
+        1390:
+          0: Jalali
+          1: Hijri_Qamari
+        1395:
+          1: Jalali
+          2: Gregorian
+          3: Hijri_Qamari
+    Col05_ghamari: *calendar
+
+    BirthYear: &birth_year
+      new_name: Birth_Year
+      type: UInt16
+      replace: {-9: null, "$": null, "MM": null}
+    Col05: *birth_year
+
+    BirthMonth: &birth_month
+      new_name: Birth_Month
+      type: UInt8
+      replace: {-9: null, "$": null, "MM": null}
+    Col06: *birth_month
+
+    Col05_sadsal:
+      new_name: Is_Over_100_Month
+      type: boolean
+      true_condition: 1
+
+    Col06_sadsal:
+      new_name: Is_Over_100_Year
+      type: boolean
+      true_condition: 1
+
+    Col07_sadsal:
+      new_name: Is_Over_100_Age
+      type: boolean
+      true_condition: 1
+
+    Col07_kamtarazyeksal:
+      new_name: Is_Under_1_Age
+      type: boolean
+      true_condition: 1
+
+    age:
+      new_name: Age
+      type:
+        1390: string
+        1395: UInt8
+
+    ResidenceStatus:
+      new_name: Residence_Status
+      type: category
+      categories:
+        1: Present
+        2: Temporary_Absent
+        3: Abroad
+        4: Others
+
+    MarriageStatus:
+      new_name: Marrital_State
+      type: category
+      categories:
+        1: Married
+        2: Widowed
+        3: Divorced
+        4: Bachelor
+        -8: No_Response_Previously_Married
+        -9: No_Response
+
+    ActivityType:
+      new_name: Activity_State
+      type: category
+      categories: 
+        1: Employed
+        3: Unemployed
+        5: Student
+        6: Housekeeper
+        7: Income_without_Work
+        8: Other
+        -9: No_Response
+
+    EducationStatus:
+      new_name: Is_Literate
+      type: boolean
+      true_condition: 1
+      replace: {-9: null}
+
+    CurrentlyStudying:
+      new_name: Is_Student
+      type: boolean
+      true_condition: 1
+      replace: {-9: null}
+
+    EducationEvidence:
+      new_name: Education_Level
+      type: category
+      categories:
+        1: Primar
+        2: Secondary
+        3: Tertiary
+        4: Pre_University
+        5: College
+        6: Bachelors
+        7: Masters
+        8: PhD
+        15: Other
+        -9: No_Response
+
+    ChangeMakanSince90:
+      new_name: Residence_Changed
+      type: boolean
+      true_condition: 1
+
+    AbroadOrAtHome:
+      new_name: Previous_Residence_Location
+      type: category
+      categories:
+        1: Iran_Other_City
+        2: Iran_Other_Village
+        3: Abroad
+        -8: No_Response_Iran
+        -9: No_Response
+
+    ResidenceOstan_country:
+      new_name: Previous_Province_or_Country
+      type: Int16
+
+    ResidenceShahrestan:
+      new_name: Previous_County
+      type: Int16
+
+    ResidenceLength:
+      new_name: Residence_Duration
+      type: Int8
+
+    BirthLiveChild_SoFar:
+      question: آیا تا کنون فرزند زنده‌ای به دنیا آورده است؟
+      new_name: Has_Live_Birth
+      type: boolean
+      true_condition: 1
+      replace: {-9: null}
+
+    LiveChild_AllCount:
+      question: تعداد کل فرزندان زنده به دنیا آورده
+      new_name: Number_of_Live_Births
+      type: UInt8
+      replace: {-9: null}
+
+    LiveChild_NowCount:
+      question: تعداد کل فرزندان زنده به دنیا آورده (در حال حاضر زنده)
+      new_name: Number_of_Living_Children
+      type: UInt8
+      replace: {-9: null}
+
+    BirthLiveChild_365Past:
+      question: آیا در ۳۶۵ روز گذشته فرزند زنده‌ای به دنیا آورده است؟
+      new_name: Has_Live_Birth_Past_Year
+      type: boolean
+      true_condition: 1
+      replace: {-9: null}
+
+    LiveChild365_AllCount:
+      question: تعداد کل فرزندان زنده به دنیا آورده در ۳۶۵ روز گذشته
+      new_name: Number_of_Live_Births_Past_Year
+      type: UInt8
+      replace: {-9: null}
+
+    LiveChild365_NowCount:
+      question: تعداد کل فرزندان زنده به دنیا آورده در ۳۶۵ روز گذشته (در حال حاضر زنده)
+      new_name: Number_of_Living_Children_Past_Year
+      type: UInt8
+      replace: {-9: null}
+
+    weight_hh:
+      new_name: Household_Weight
+      type: float
+
+    Weight_individual:
+      new_name: Individual_Weight
+      type: float
+
+
+household:
+  file_code:
+    1375: sample_household_CN75
+    1385: "kh*"
+    1390: samplekhanevarmaskan2_final
+    1395: Household
+
+  columns:
+
+    KhanevarID:
+      new_name: Household_ID
+      type: UInt64
+      description: شماره شناسایی خانوار
+
+    ostan:
+      new_name: Province_Code
+      type: UInt8
+      description: کد استان
+
+    shahrestan:
+      new_name: County_Code
+      type: UInt16
+      description: کد شهرستان
+
+    ur:
+      new_name: Urban_Rural_Code
+      type: UInt8
+      description: >
+        شهری / روستایی
+        ۱ : شهری
+        ۲: روستایی
+
+    KhanevarType:
+      new_name: Household_Type  # HBSIR
+      type: category
+      description: >
+        نوع خانوار
+        ۱ : معمولی ساکن
+        ۳ : گروهی
+      categories:
+        1: Normal
+        3: Group
+
+    MembersCount:
+      new_name: Number_of_Members  # HBSIR
+      type: UInt8
+      description: تعداد اعضای خانوار
+
+    MaskanID:
+      new_name: House_ID
+      type: UInt64
+      description: شناسه مسکن
+
+    PlaceType:
+      new_name: Dwelling_Type  # HBSIR
+      type: category
+      description: >
+        نوع محل سکونت خانوار
+        ۱ : واحد مسکونی آپارتمانی
+        ۲: واحد مسکونی غیر آپارتمانی
+        ۳: چادر، کپر، آلونک، زاغه یا موارد مشابه
+        ۴: سایر
+      translation: Type of dwelling of the household
+      categories:
+        1: Apartment_Unit
+        2: Non_Apartment_Unit
+        3: Tent_Shack_Hut_or_Similar
+        4: Other
+        -9: No_Response
+
+    PlaceOwnership:
+      new_name: Tenure  # HBSIR
+      type: category
+      description: نحوه‌ی تصرف محل سکونت خانوار
+      categories:
+        1: Owned_Estate
+        2: Rent
+        3: Other
+        -9: No_Response
+
+    Skeleton:
+      new_name: Construction_Skeleton  # HBSIR
+      type: category
+      categories:
+        1: Metal
+        2: Concrete
+        3: Other
+        -9: No_Response
+
+    Materials:
+      new_name: Construction_Material  # HBSIR
+      type: "category"
+      categories:
+        1: BrickSteel_StoneSteel
+        2: Brickwood_Stonewood
+        3: Cement_Blocks
+        4: AllBrick_Stone
+        5: AllWood
+        6: Sundried_Brickwood
+        7: Sundried_Brickmud
+        8: Other
+        -9: No_Response
+
+    HouseArea:
+      new_name: House_Area  # HBSIR
+      type: UInt16
+      replace: {-9: null}
+
+    KhanevarCount:
+      new_name: Number_of_Households
+      type: UInt8
+
+    weight_hh:
+      new_name: Household_Weight
+      type: float
+
+    Weight_Dwl:
+      new_name: Dwelling_Weight
+      type: float

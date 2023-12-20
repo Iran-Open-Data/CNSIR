@@ -1,0 +1,245 @@
+
+
+1375:
+  compressed_files:
+    - name: individual.rar
+      address: https://www.amar.org.ir/Portals/0/census/1375/raw-data/sample_person_CN75.rar
+
+    - name: household.rar
+      address: https://www.amar.org.ir/Portals/0/census/1375/raw-data/sample_household_CN75.rar
+
+    - name: codes.rar
+      address: https://www.amar.org.ir/Portals/0/census/1375/raw-data/CN75Codes.rar
+
+
+  unpacked_files:
+    - name: description.pdf
+      address: https://www.amar.org.ir/Portals/0/census/1375/raw-data/Sample%20Description%2075.pdf
+
+    - name: geo_codes.xls
+      address: https://www.amar.org.ir/Portals/0/census/1375/raw-data/Shahrestan_geo75.xls
+
+
+1385:
+  compressed_files:
+    - name: individual00.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard00.rar
+
+    - name: individual01.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard01.rar
+
+    - name: individual02.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard02.rar
+
+    - name: individual03.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard03.rar
+
+    - name: individual04.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard04.rar
+
+    - name: individual05.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard05.rar
+
+    - name: individual06.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard06.rar
+
+    - name: individual07.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard07.rar
+
+    - name: individual08.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard08.rar
+
+    - name: individual09.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard09.rar
+
+    - name: individual10.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard10.rar
+
+    - name: individual11.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard11.rar
+
+    - name: individual12.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard12.rar
+
+    - name: individual13.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard13.rar
+
+    - name: individual14.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard14.rar
+
+    - name: individual15.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard15.rar
+
+    - name: individual16.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard16.rar
+
+    - name: individual17.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard17.rar
+
+    - name: individual18.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard18.rar
+
+    - name: individual19.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard19.rar
+
+    - name: individual20.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard20.rar
+
+    - name: individual21.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard21.rar
+
+    - name: individual22.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard22.rar
+
+    - name: individual23.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard23.rar
+
+    - name: individual2301.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard2301.rar
+
+    - name: individual24.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard24.rar
+
+    - name: individual25.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard25.rar
+
+    - name: individual26.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard26.rar
+
+    - name: individual27.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard27.rar
+
+    - name: individual28.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard28.rar
+
+    - name: individual29.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/fard29.rar
+
+
+    - name: household00.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh00.rar
+
+    - name: household01.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh01.rar
+
+    - name: household02.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh02.rar
+
+    - name: household03.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh03.rar
+
+    - name: household04.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh04.rar
+
+    - name: household05.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh05.rar
+
+    - name: household06.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh06.rar
+
+    - name: household07.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh07.rar
+
+    - name: household08.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh08.rar
+
+    - name: household09.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh09.rar
+
+    - name: household10.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh10.rar
+
+    - name: household11.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh11.rar
+
+    - name: household12.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh12.rar
+
+    - name: household13.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh13.rar
+
+    - name: household14.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh14.rar
+
+    - name: household15.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh15.rar
+
+    - name: household16.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh16.rar
+
+    - name: household17.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh17.rar
+
+    - name: household18.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh18.rar
+
+    - name: household19.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh19.rar
+
+    - name: household20.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh20.rar
+
+    - name: household21.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh21.rar
+
+    - name: household22.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh22.rar
+
+    - name: household23.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh23.rar
+
+    - name: household2301.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh2301.rar
+
+    - name: household24.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh24.rar
+
+    - name: household25.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh25.rar
+
+    - name: household26.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh26.rar
+
+    - name: household27.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh27.rar
+
+    - name: household28.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh28.rar
+
+    - name: household29.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/kh29.rar
+
+
+    - name: codes.rar
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/1385_raw-data-code.rar
+
+
+  unpacked_files:
+    - name: description.pdf
+      address: https://www.amar.org.ir/Portals/0/census/1385/raw-data/1385_raw-data-sample_description.pdf
+
+
+1390:
+  compressed_files:
+    - name: individual.rar
+      address: https://www.amar.org.ir/Portals/0/census/1390/raw-data/Samplefard2_final.rar
+
+    - name: household.rar
+      address: https://www.amar.org.ir/Portals/0/census/1390/raw-data/samplekhanevarmaskan2_final.rar
+
+  unpacked_files:
+    - name: description.pdf
+      address: https://www.amar.org.ir/Portals/0/census/1390/raw-data/Sample_Description.pdf
+
+
+1395:
+  compressed_files:
+    - name: individual.rar
+      address: https://www.amar.org.ir/Portals/0/census/1395/results/raw-data/CN95_2PERCENT_Individual.rar
+
+    - name: household.rar
+      address: https://www.amar.org.ir/Portals/0/census/1395/results/raw-data/CN95_2Percent_Household.rar
+
+  unpacked_files:
+    - name: description.pdf
+      address: https://www.amar.org.ir/Portals/0/census/1395/results/raw-data/Sample_Description_95.pdf

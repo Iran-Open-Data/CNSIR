@@ -1,0 +1,55 @@
+site_name: CNSIR
+site_url: https://iran-open-data.github.io/CNSIR/
+repo_url: https://github.com/Iran-Open-Data/CNSIR
+
+theme:
+  name: material
+  features:
+    # - navigation.tracking
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    # - header.autohide
+    - toc.follow
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+
+plugins:
+  - search
+  - autorefs
+  - mkdocs-jupyter:
+      execute: true
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [lfsir]
+          options:
+            docstring_style: numpy
+            show_source: false
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - md_in_html
+  - pymdownx.inlinehilite
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
