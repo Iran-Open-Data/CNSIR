@@ -5,7 +5,7 @@ table_availability:
 
 default_table_settings:
   # Options: error, drop
-  missings: skip
+  missings: drop
 
 
 
@@ -23,13 +23,13 @@ individual:
       type: UInt64
       description: شماره شناسایی خانوار
 
-    ostan:
+    ostan: &individual_ostan
       new_name: Province_Code
       type: UInt8
       description: کد استان
 
     shahrestan:
-      new_name: County
+      new_name: County_Code
       type: UInt16
       description: کد شهرستان
 
@@ -38,11 +38,15 @@ individual:
       type: UInt8
       description: >
         شهری / روستایی
+        1395:
         ۱ : شهری
         ۲: روستایی
+        1390:
+        ۰ : روستایی
+        ۱ : شهری
     RU: *urban_rural
 
-    KhanevarType:
+    KhanevarType: &household_type
       new_name: Household_Type  # HBSIR
       type: category
       description: >
@@ -51,15 +55,12 @@ individual:
         ۳ : گروهی
       categories:
         1: Normal
-        3: Group 
+        3: Group
+    KhanevarTy: *household_type
 
     MemberID:
       new_name: Member_ID
       type: UInt64
-
-    Col01:
-    new_name: Member_Number
-    type: UInt8
 
     Relationship: &relationship
       new_name: Relationship
@@ -89,7 +90,6 @@ individual:
           8: Other_Family
           9: Non_Family
           -9: No_Response
-    Col03: *relationship
 
     Gender: &sex
       new_name: Sex
@@ -97,7 +97,6 @@ individual:
       categories:
         1: Male
         2: Female
-    Col4: *sex
 
     calendar: &calendar
       new_name: Calendar
@@ -110,47 +109,24 @@ individual:
           1: Jalali
           2: Gregorian
           3: Hijri_Qamari
-    Col05_ghamari: *calendar
 
     BirthYear: &birth_year
       new_name: Birth_Year
       type: UInt16
       replace: {-9: null, "$": null, "MM": null}
-    Col05: *birth_year
 
     BirthMonth: &birth_month
       new_name: Birth_Month
       type: UInt8
       replace: {-9: null, "$": null, "MM": null}
-    Col06: *birth_month
 
-    Col05_sadsal:
-      new_name: Is_Over_100_Month
-      type: boolean
-      true_condition: 1
-
-    Col06_sadsal:
-      new_name: Is_Over_100_Year
-      type: boolean
-      true_condition: 1
-
-    Col07_sadsal:
-      new_name: Is_Over_100_Age
-      type: boolean
-      true_condition: 1
-
-    Col07_kamtarazyeksal:
-      new_name: Is_Under_1_Age
-      type: boolean
-      true_condition: 1
-
-    age:
+    age: &age
       new_name: Age
       type:
         1390: string
         1395: UInt8
 
-    ResidenceStatus:
+    ResidenceStatus: &residence_status
       new_name: Residence_Status
       type: category
       categories:
@@ -159,16 +135,24 @@ individual:
         3: Abroad
         4: Others
 
-    MarriageStatus:
-      new_name: Marrital_State
+    MarriageStatus: &marital_status
+      new_name: Marital_Status
       type: category
       categories:
-        1: Married
-        2: Widowed
-        3: Divorced
-        4: Bachelor
-        -8: No_Response_Previously_Married
-        -9: No_Response
+        1390:
+          "1": Married
+          "2": Widowed
+          "3": Divorced
+          "4": Bachelor
+          "$": No_Response_Previously_Married
+          "&": No_Response
+        1395:
+          1: Married
+          2: Widowed
+          3: Divorced
+          4: Bachelor
+          -8: No_Response_Previously_Married
+          -9: No_Response
 
     ActivityType:
       new_name: Activity_State
@@ -198,7 +182,7 @@ individual:
       new_name: Education_Level
       type: category
       categories:
-        1: Primar
+        1: Primary
         2: Secondary
         3: Tertiary
         4: Pre_University
@@ -236,52 +220,161 @@ individual:
       new_name: Residence_Duration
       type: Int8
 
-    BirthLiveChild_SoFar:
+    BirthLiveChild_SoFar: &has_live_birth
       question: آیا تا کنون فرزند زنده‌ای به دنیا آورده است؟
       new_name: Has_Live_Birth
       type: boolean
       true_condition: 1
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
     LiveChild_AllCount:
       question: تعداد کل فرزندان زنده به دنیا آورده
       new_name: Number_of_Live_Births
       type: UInt8
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
     LiveChild_NowCount:
       question: تعداد کل فرزندان زنده به دنیا آورده (در حال حاضر زنده)
       new_name: Number_of_Living_Children
       type: UInt8
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
     BirthLiveChild_365Past:
       question: آیا در ۳۶۵ روز گذشته فرزند زنده‌ای به دنیا آورده است؟
       new_name: Has_Live_Birth_Past_Year
       type: boolean
       true_condition: 1
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
-    LiveChild365_AllCount:
+    LiveChild365_AllCount: &number_of_live_births_past_year
       question: تعداد کل فرزندان زنده به دنیا آورده در ۳۶۵ روز گذشته
       new_name: Number_of_Live_Births_Past_Year
       type: UInt8
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
     LiveChild365_NowCount:
       question: تعداد کل فرزندان زنده به دنیا آورده در ۳۶۵ روز گذشته (در حال حاضر زنده)
       new_name: Number_of_Living_Children_Past_Year
       type: UInt8
-      replace: {-9: null}
+      replace:
+        1390: {"$": null}
+        1395: {-9: null}
 
     weight_hh:
       new_name: Household_Weight
       type: float
 
-    Weight_individual:
+    Weight_individual: &individual_weight
       new_name: Individual_Weight
       type: float
+    Weight:
+      1390: *individual_weight
 
+    Col01:
+      1390:
+        new_name: Member_Number
+        type: UInt8
+
+    Col03: *relationship
+
+    Col04: *sex
+
+    Col05:
+      1390: *birth_month
+
+    Col05_sadsal: &is_over_100_col5
+      new_name: Is_Over_100_Year_5
+      type: boolean
+      true_condition: 1
+    Col05_SadS: *is_over_100_col5
+
+    Col05_Gham: *calendar
+
+    Col06_sadsal: &is_over_100_6
+      new_name: Is_Over_100_Year_6
+      type: boolean
+      true_condition: 1
+    Col06_SadS: *is_over_100_6
+
+    Col06:
+      1390: *birth_year
+
+    Col07_sadsal: &is_over_100_7
+      new_name: Is_Over_100_Age_7
+      type: boolean
+      true_condition: 1
+    Col07_SadS: *is_over_100_7
+
+    Col07_kamtarazyeksal: &is_under_1
+      new_name: Is_Under_1_Age
+      type: boolean
+      true_condition: 1
+    Col07_Kamt: *is_under_1
+
+    Col07: *age
+
+    col08: *residence_status
+
+    col09:
+      new_name: Has_Other_Residence
+      type: category
+      categories:
+        1: Yes_Same_City_or_Village
+        2: Yes_Other_City
+        3: Yes_Other_Village
+        4: 'No'
+      replace: {"$": null}
+
+    col09_Code:
+      new_name: Other_Residence_Location
+      type: UInt16
+      replace: {"X000": 0}
+
+    col30:
+      1390: *marital_status
+
+    col31:
+      1390: *has_live_birth
+
+    col32_Dokh:
+      question: تعداد کل فرزندان زنده به دنیا آورده دختر
+      new_name: Number_of_Live_Girl_Births
+      type: UInt8
+      replace:
+        1390: {"$": null}
+
+    col32_Pesa:
+      question: تعداد کل فرزندان زنده به دنیا آورده پسر
+      new_name: Number_of_Live_Boy_Births
+      type: UInt8
+      replace:
+        1390: {"$": null}
+
+    col33_Dokh:
+      question: تعداد فرزندان در حال حاضر زنده دختر
+      new_name: Number_of_Living_Girls
+      type: UInt8
+      replace:
+        1390: {"$": null}
+
+    col33_Pesa:
+      question: تعداد فرزندان در حال حاضر زنده پسر
+      new_name: Number_of_Living_Boys
+      type: UInt8
+      replace:
+        1390: {"$": null}
+
+    col34: *number_of_live_births_past_year
 
 household:
   file_code:
@@ -293,7 +386,7 @@ household:
   columns:
 
     KhanevarID:
-      new_name: Household_ID
+      new_name: ID
       type: UInt64
       description: شماره شناسایی خانوار
 
