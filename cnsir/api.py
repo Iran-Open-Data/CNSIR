@@ -22,7 +22,7 @@ defaults, metadata = config.set_package_config(Path(__file__).parent)
 api = API(defaults=defaults, metadata=metadata)
 
 _Table = Literal["household", "individual"]
-_Attribute = Literal["ID_Year", "Province", "Urban_Rural"]
+_Attribute = Literal["Province", "County", "Urban_Rural"]
 
 
 def __get_optional_params(local_variables: dict) -> dict:
@@ -200,6 +200,13 @@ def add_attribute(
     ```
 
     """
+    if id_col is None:
+        table["location_code"] = (
+            table["Urban_Rural_Code"].astype("UInt64") * 10_000 +
+            table["Province_Code"].astype("UInt64") * 100 +
+            table["County_Code"].astype("UInt64")
+        )
+        id_col = "location_code"
     parameters = __get_optional_params(locals())
     return api.add_attribute(**parameters)
 
