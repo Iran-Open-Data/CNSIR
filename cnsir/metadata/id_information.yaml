@@ -1,0 +1,63 @@
+
+ID_Length: 5
+
+
+Urban_Rural:
+  code:
+    position:
+      start: 0
+      end: 1
+
+  mappings:
+    farsi_name:
+      origin: name
+      mapping: rural_urban_translation
+
+  name:
+    1: Urban
+    2: Rural
+
+Province:
+  code:
+    position:
+      start: 1
+      end: 3
+
+  mappings:
+    farsi_name:
+      origin: name
+      mapping: province_name_translation
+
+  name:
+    0:  Markazi                             # مرکزی
+    1:  Gilan                               # گیلان
+    2:  Mazandaran                          # مازندران
+    3:  East_Azerbaijan                     # آذربایجان شرقی
+    4:  West_Azerbaijan                     # آذربایجان غربی
+    5:  Kermanshah                          # کرمانشاه
+    6:  Khuzestan                           # خوزستان
+    7:  Fars                                # فارس
+    8:  Kerman                              # کرمان
+    9:  Razavi_Khorasan                     # خراسان رضوی
+    10: Isfahan                             # اصفهان
+    11: Sistan_and_Baluchestan              # سیستان و بلوچستان
+    12: Kurdistan                           # کردستان
+    13: Hamadan                             # همدان
+    14: Chaharmahal_and_Bakhtiari           # چهارمحال و بختیاری
+    15: Lorestan                            # لرستان
+    16: Ilam                                # ایلام
+    17: Kohgiluyeh_and_Boyer_Ahmad          # کهکیلویه و بویر احمد
+    18: Bushehr                             # بوشهر
+    19: Zanjan                              # زنجان
+    20: Semnan                              # سمنان
+    21: Yazd                                # یزد
+    22: Hormozgan                           # هرمزگان
+    23: Tehran                              # تهران
+    24: Ardabil                             # اردبیل
+    25: Qom                                 # قم
+    26: Qazvin                              # قزوین
+    27: Golestan                            # گلستان
+    28: North_Khorasan                      # خراسان شمالی
+    29: South_Khorasan                      # خراسان جنوبی
+    30: Alborz                              # البرز
+
