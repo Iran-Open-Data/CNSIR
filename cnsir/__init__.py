@@ -5,6 +5,7 @@ from .api import (
     add_classification,
     setup,
     setup_config,
+    download_map,
 )
 
 __all__ = [
@@ -14,4 +15,5 @@ __all__ = [
     "add_classification",
     "setup",
     "setup_config",
+    "download_map",
 ]

@@ -343,3 +343,11 @@ def setup_config(replace: bool = False) -> None:
 
     """
     api.setup_config(replace=replace)
+
+
+def download_map(
+    map_name: str,
+    source: Literal['original'] = "original"
+) -> None:
+    parameters = __get_optional_params(locals())
+    api.utils.download_map(**parameters)
