@@ -340,6 +340,31 @@ individual:
       type: UInt16
       replace: {"X000": 0}
 
+    col18_Code:
+      new_name: Is_Student
+      type: category
+      categories:
+        1: Yes, In Iran
+        2: Yes, Abroad
+        3: No
+      replace: {"$": null}
+    
+    col19:
+      new_name: Is_Literate
+      type: boolean
+      true_condition: 1
+      replace: {"$": null}
+
+    col20_Code:
+      new_name: Education_Level
+      type: UInt16
+      replace: {"X00": null}
+
+    col21_Code:
+      new_name: Field_of_Education
+      type: UInt16
+      replace: {"X00": null}
+
     col30:
       1390: *marital_status
 
